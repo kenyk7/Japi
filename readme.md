@@ -41,7 +41,7 @@ Now save your token in LocalStorage and use for request to the api endpoint
 
 JSON Server is running in: http://localhost:3005/api + route: example /api/users
 
-Send to header in your endpoint: ?token=kenyk7 or customize in the file app.js
+Send to header in your endpoint: `?token=kenyk7` or customize in the file `app.js` and `data/*.js`
 
 Example in your browser:
 
@@ -50,9 +50,9 @@ Example in your browser:
 
 ## Features
 
-Json-server
-Nodemon
-Faker
+*Json-server
+*Nodemon
+*Faker
 
 Next tut
 https://devdactic.com/restful-api-user-authentication-1/
