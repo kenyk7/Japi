@@ -2,13 +2,23 @@
 var jsonServer = require('json-server')
 
 
+var Users = require('./data/users')()
+var Videos = require('./data/videos')()
+var Comments = require('./data/comments')()
+var Todos = require('./data/todos')()
+
+
 // Routes
 var routes = {}
 
 // Register Routes
-routes.users = require('./data/users')()
-routes.todos = require('./data/todos')()
-routes.videos = require('./data/videos')()
+routes.users = Users.list()
+routes.videos = Videos.list()
+routes.comments = Comments.list()
+
+// Todos basic example
+routes.todos = Todos.list()
+
 
 
 // Create server
@@ -26,8 +36,8 @@ var dataToken = {
 	token: 'kenyk7'
 }
 var error = {
-	status:'Error',
-	message: 'User not found'
+	status:'error',
+	message: 'Login failed !!'
 }
 // Login auth
 server.use(jsonServer.bodyParser)
@@ -53,7 +63,7 @@ function isAuthorized(req){
 	}
 	return false
 }
-server.use('/api', function (req, res, next) {
+server.use('/api/secure', function (req, res, next) {
 	if (isAuthorized(req)) {
 		next()
 	} else {
@@ -65,7 +75,7 @@ server.use('/api', function (req, res, next) {
 
 // Use default router
 var port = 3005
-server.use('/api', router)
+server.use(router)
 server.listen(port, function () {
   console.log('JSON Server is running in: http://localhost:'+port+'/api ' + ' + route: example /api/users')
 })

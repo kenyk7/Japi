@@ -1,20 +1,38 @@
 
 var faker = require('faker')
 
-module.exports = function () {
-  var users = []
+// var videosData = require('./videos')()
+// var Comments = require('./comments')()
 
-  for (var id = 0; id < 7; id++) {
 
-    users.push({
-      "id": id,
-      "first_name": faker.name.firstName(),
-      "last_name": faker.name.firstName(),
-      "phone": faker.phone.phoneNumber(),
-      "photoUrl": faker.image.imageUrl()
-    })
+function Users() {
+  var _self = this;
 
+  _self.list = function(){
+    var users = {
+      "status": "success",
+      "data": []
+    }
+
+    for (var id = 1; id < 9; id++) {
+      users.data.push({
+        "id": id,
+        "role": faker.random.arrayElement(['admin', 'anonymus']),
+        "name": faker.name.firstName(),
+        "surname": faker.name.firstName(),
+        "email": faker.internet.email(),
+        "password": faker.internet.password(),
+        "image": faker.image.avatar(),
+        "create_at": Date.now(),
+      })
+    }
+
+    return users
   }
 
-  return users
+
+}
+
+module.exports = function() {
+  return new Users()
 }

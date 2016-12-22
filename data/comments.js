@@ -1,38 +1,33 @@
-
 var faker = require('faker')
 
 var usersList = require('./users')().list()
+var videosList = require('./videos')().list()
 
 
-function Videos() {
+function Comments() {
   var _self = this;
 
   _self.list = function(){
-    var videos = {
+    var comments = {
       "status": "success",
       "data": []
     }
 
     for (var id = 1; id < 9; id++) {
-      videos.data.push({
+      comments.data.push({
         "id": id,
-        "title": faker.lorem.words(),
-        "description": faker.lorem.sentence(),
-        "status": faker.random.arrayElement([true, false]),
-        "image": faker.image.imageUrl(),
-        "videoPath": faker.image.nature(),
+        "body": faker.lorem.sentence(),
+        "video": faker.random.arrayElement(videosList.data),
         "user": faker.random.arrayElement(usersList.data),
         "create_at": Date.now()
       })
-
     }
 
-    return videos
+    return comments
   }
-
 
 }
 
 module.exports = function() {
-  return new Videos();
+  return new Comments();
 }
