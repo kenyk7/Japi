@@ -1,0 +1,26 @@
+{
+  "name": "japi",
+  "version": "1.0.0",
+  "description": "Api in json server",
+  "main": "app.js",
+  "scripts": {
+    "test": "null",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenyk7/Japi.git"
+  },
+  "keywords": [
+    "json",
+    "api",
+    "fake-api",
+    "server-fake"
+  ],
+  "author": "@kenyk7",
+  "license": "MIT",
+  "dependencies": {
+    "faker": "^3.1.0",
+    "json-server": "^0.9.4"
+  }
+}
