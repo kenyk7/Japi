@@ -8,6 +8,9 @@ var Comments = require('./data/comments')()
 var Todos = require('./data/todos')()
 
 
+var gen = require('./ModelFake')().gen()
+
+
 // Routes
 var routes = {}
 
@@ -19,6 +22,8 @@ routes.comments = Comments.list()
 // Todos basic example
 routes.todos = Todos.list()
 
+
+// console.log(routes)
 
 
 // Create server

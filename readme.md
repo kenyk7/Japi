@@ -50,9 +50,13 @@ Example in your browser:
 
 ## Features
 
-*Json-server
-*Nodemon
-*Faker
+* [Json-server]
+* [Nodemon]
+* [Faker]
 
 Next tut
 https://devdactic.com/restful-api-user-authentication-1/
+
+[Json-server]: <https://github.com/typicode/json-server>
+[Nodemon]: <https://github.com/remy/nodemon>
+[Faker]: <https://github.com/marak/Faker.js/>
