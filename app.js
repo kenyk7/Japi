@@ -5,25 +5,27 @@ var jsonServer = require('json-server')
 var Users = require('./data/users')()
 var Videos = require('./data/videos')()
 var Comments = require('./data/comments')()
-var Todos = require('./data/todos')()
 
-
-var gen = require('./ModelFake')().gen()
+var Tasks = require('./data/tasks')()
 
 
 // Routes
 var routes = {}
 
+// Config gen
+var totalItems = 30;
+var itemsPerPage = 5;
+
+
 // Register Routes
-routes.users = Users.list()
-routes.videos = Videos.list()
-routes.comments = Comments.list()
+// Listing
+routes.users = Users.list(totalItems)
+routes.videos = Videos.list(totalItems)
+routes.comments = Comments.list(totalItems)
 
-// Todos basic example
-routes.todos = Todos.list()
+// Advanced Custom example
+routes.tasks = Tasks.list(totalItems, itemsPerPage)
 
-
-// console.log(routes)
 
 
 // Create server
@@ -77,9 +79,19 @@ server.use('/api/secure', function (req, res, next) {
 })
 
 
+// Only task advanced
+server.use('/tasks/:id', function(req, res, next){
+	if (req.method === 'PUT') {
+		res.jsonp(Tasks.only(true, req.params.id))
+	} else {
+		res.jsonp(Tasks.only(false, req.params.id))
+	}
+});
+
+
 
 // Use default router
-var port = 3005
+var port = 9000
 server.use(router)
 server.listen(port, function () {
   console.log('JSON Server is running in: http://localhost:'+port+'/api ' + ' + route: example /api/users')

@@ -8,14 +8,11 @@ var faker = require('faker')
 function Users() {
   var _self = this;
 
-  _self.list = function(){
-    var users = {
-      "status": "success",
-      "data": []
-    }
+  _self.list = function(items){
+    var users = []
 
-    for (var id = 1; id < 9; id++) {
-      users.data.push({
+    for (var id = 1; id < items; id++) {
+      users.push({
         "id": id,
         "role": faker.random.arrayElement(['admin', 'anonymus']),
         "name": faker.name.firstName(),
@@ -23,7 +20,7 @@ function Users() {
         "email": faker.internet.email(),
         "password": faker.internet.password(),
         "image": faker.image.avatar(),
-        "create_at": Date.now(),
+        "create_at": Date.now()
       })
     }
 

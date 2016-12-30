@@ -50,7 +50,7 @@ function ModelFake(models) {
 
         for (var n = 0; n < entities[i].fields.length; n++) {
           var obj2 = JSON.parse('{"' + entities[i].fields[n].name + '":"'+ entities[i].fields[n].fake +'"}');
-          console.log(obj2)
+          // console.log(obj2)
         }
       }
 
@@ -59,6 +59,7 @@ function ModelFake(models) {
     }
 
     var dataFake = Object.assign({}, tempData)
+    console.log(dataFake)
 
     return dataFake
   }
