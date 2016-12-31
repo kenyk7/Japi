@@ -62,7 +62,7 @@ function property_extends(){
             data.push({
                 id: i + 1,
                 name: array[i].name,
-                price: array[i].symbol
+                symbol: array[i].symbol
             })
         }
         return data;

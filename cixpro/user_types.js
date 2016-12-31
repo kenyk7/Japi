@@ -1,6 +1,6 @@
 
 module.exports = {
-  "name": "example",
+  "name": "user_types",
   "fields": [
     {
       "name": "name",

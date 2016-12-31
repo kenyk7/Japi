@@ -9,7 +9,13 @@ var provinces = require('./cixpro/provinces')
 var districts = require('./cixpro/districts')
 
 var pExtends = require('./cixpro/property_extends')()
+
 var properties = require('./cixpro/properties')
+var property_images = require('./cixpro/property_images')
+var property_proyects = require('./cixpro/property_projects')
+var property_likes = require('./cixpro/property_likes')
+
+var newsletters = require('./cixpro/newsletters')
 
 
 // Register models
@@ -19,7 +25,11 @@ var schema = [
 	departaments,
 	provinces,
 	districts,
-	properties
+	properties,
+	property_images,
+	property_proyects,
+	property_likes,
+	newsletters
 ]
 
 var numItems = 20
@@ -30,11 +40,12 @@ var datasource = {}
 datasource = generator.genSchema(schema, numItems)
 
 // Register static models
-datasource.transactions = pExtends.transactions()
-datasource.types = pExtends.types()
-datasource.statuses = pExtends.statuses()
-datasource.levels = pExtends.levels()
-datasource.moneys = pExtends.moneys()
+datasource.property_transactions = pExtends.transactions()
+datasource.property_types = pExtends.types()
+datasource.property_moneys = pExtends.moneys()
+datasource.property_levels = pExtends.levels()
+datasource.property_statuses = pExtends.statuses()
+
 
 module.exports = function(){
 	return datasource
