@@ -40,7 +40,7 @@ Now save your token in LocalStorage and use for request to the api endpoint
 
 JSON Server is running in: http://localhost:9000 + route: example /users
 
-Send to header in your endpoint: `?token=kenyk7` or customize in the file `app.js` and `data/*.js`
+Send to header in your endpoint: `?token=kenyk7` or customize in the file `app.js` 
 
 Example in your browser:
 
@@ -50,7 +50,7 @@ Example in your browser:
 ## Register new models
 
 * create your model in folder models
-* modify your file using [Faker]
+* modify your file using [Faker] methods or use your custom functions
 * register your model in registerModels and ready
 
 ## Features
