@@ -1,31 +1,22 @@
 // Requires
 var jsonServer = require('json-server')
 
+var generator = require('./Generator')()
+var registerModels = require('./registerModels')()
 
-var Users = require('./data/users')()
-var Videos = require('./data/videos')()
-var Comments = require('./data/comments')()
 
-var Tasks = require('./data/tasks')()
-
+// Other custom
+var Tasks = require('./custom/tasks')()
 
 // Routes
-var routes = {}
+var routes = registerModels
+
 
 // Config gen
-var totalItems = 30;
-var itemsPerPage = 5;
-
-
-// Register Routes
-// Listing
-routes.users = Users.list(totalItems)
-routes.videos = Videos.list(totalItems)
-routes.comments = Comments.list(totalItems)
-
+var totalItems = 30
+var itemsPerPage = 5
 // Advanced Custom example
 routes.tasks = Tasks.list(totalItems, itemsPerPage)
-
 
 
 // Create server
@@ -89,10 +80,9 @@ server.use('/tasks/:id', function(req, res, next){
 });
 
 
-
 // Use default router
 var port = 9000
 server.use(router)
 server.listen(port, function () {
-  console.log('JSON Server is running in: http://localhost:'+port+'/api ' + ' + route: example /api/users')
+  console.log('JSON Server is running in: http://localhost:'+port+'/' + ' + route: example /api/users')
 })

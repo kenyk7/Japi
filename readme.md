@@ -1,11 +1,10 @@
 # Japi
 
-Simple api rest with authorization and login auth
+Simple api rest with josn-server + authorization and login auth + automatize models faker generator class
 
 ## Dev
 
 Clone this repository
-
 Require npm or yarn and install global json-server, nodemon
 
 Use nodemon recomended for dev in your api of json server = Simulates automatic reloading when modifying your files
@@ -39,14 +38,20 @@ Now save your token in LocalStorage and use for request to the api endpoint
 
 ## Api
 
-JSON Server is running in: http://localhost:3005/api + route: example /api/users
+JSON Server is running in: http://localhost:9000 + route: example /users
 
 Send to header in your endpoint: `?token=kenyk7` or customize in the file `app.js` and `data/*.js`
 
 Example in your browser:
 
-`http://localhost:3005/api/users?token=kenyk7`
+`http://localhost:9000/users?token=kenyk7`
 
+
+## Register new models
+
+* create your model in folder models
+* modify your file using [Faker]
+* register your model in registerModels and ready
 
 ## Features
 
