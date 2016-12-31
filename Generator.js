@@ -1,6 +1,7 @@
 // Model Class for automate generator models with schemma
 
 var faker = require('faker');
+var helpers = require('./Helpers')();
 
 function Generator() {
   var _self = this;
