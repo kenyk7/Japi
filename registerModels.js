@@ -4,15 +4,15 @@ var generator = require('./Generator')()
 
 
 var users = require('./models/users')
-var comments = require('./models/comments')
 var videos = require('./models/videos')
+var comments = require('./models/comments')
 
 
 // Register models
 var schema = [
 	users,
-	comments,
-	videos
+	videos,
+	comments
 ]
 
 var numItems = 20;
