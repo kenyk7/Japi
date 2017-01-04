@@ -12,9 +12,8 @@ Use nodemon recomended for dev in your api of json server = Simulates automatic 
 #### Commands for dev
 
 ```sh
-$ npm install json-server nodemon -g
 $ yarn
-$ nodemon app.js
+$ npm run dev
 ```
 
 ## Login
