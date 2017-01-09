@@ -1,6 +1,6 @@
 # Japi
 
-Simple api rest with josn-server + authorization and login auth + automatize models faker generator class
+Simple api rest with json-server + authorization and login auth + automatize models faker generator class
 
 ## Dev
 
